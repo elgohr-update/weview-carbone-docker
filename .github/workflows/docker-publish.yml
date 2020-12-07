@@ -1,0 +1,19 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-publish:
+    name: Build and publish Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and publish image
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: weview/carbone-docker/carbone-docker
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
