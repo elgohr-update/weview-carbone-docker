@@ -10,6 +10,7 @@ jobs:
     name: Build and publish Docker image
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Build and publish image
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
